@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"></link>
+      {% load static %}
+    <link rel="stylesheet" href="{% static 'belt_exam/css/style.css' %}">
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="text-center rounded headline">H2O - A Big Opportunity</h1>
+      <div class="row">
+        <div class="col-5">
+          <h1 class="display-4" style="letter-spacing: 15px;">Sign Up!</h1>
+          {% if messages %}
+            <div class="messages alert alert-danger">
+              {% for message in messages %}
+              <p>{{ message }}</p>
+              {% endfor %}
+            </div>
+          {% endif %}
+          <form action="/register" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+              <label for="email">Email*</label>
+              <input type="email" class="form-control" name="email" placeholder="email">
+            </div>
+            <div class="form-group">
+              <label for="first_name">First Name*</label>
+              <input type="text" class="form-control" name="fname" placeholder="first name">
+            </div>
+            <div class="form-group">
+              <label for="last_name">Last Name*</label>
+              <input type="text" class="form-control" name="lname" placeholder="last name">
+            </div>
+            <div class="form-group">
+              <label for="address">Address*</label>
+              <input type="text" class="form-control" name="address" placeholder="address">
+            </div>
+            <div class="form-group">
+              <label for="credit_card">Credit Card#*</label>
+              <input type="text" class="form-control" name="credit" placeholder="credit card #">
+            </div>
+            <div class="form-group">
+              <label for="password">Password* (must be 8 characters long)</label>
+              <input type="password" class="form-control" name="password" placeholder="password">
+            </div>
+            <div class="form-group">
+              <label for="cpwd">Confirm Password*</label>
+              <input type="password" class="form-control" name="pwd_conf" placeholder="confirm password">
+            </div>
+            <div class="form-group">
+              <input type="submit" class="btn btn-primary btn-lg btn-block" value="Register">
+            </div>
+          </form>
+        </div>
+
+        <div class="col-5 ml-auto">
+          <h1 class="display-4" style="letter-spacing: 15px;">Login</h1>
+          <form action="/login" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" name="email" placeholder="email"></input>
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" name="password" placeholder="password"></input>
+              </div>
+              <div class="form-group">
+                <input type="submit" class="btn btn-primary" value="Login">
+              </div>
+              <div class="row">
+                <div class="col">
+                  <p>Water connects every aspect of life. Access to safe water and sanitation can quickly turn problems into potential - unlocking edication,
+                  work opportunities, and improved health for women, children and families across the world.</p>
+                  <p>Today, <strong>1 in 9</strong> people lack access to safe water; <strong>1 in 3</strong> people lack access to a toilet. Moree people have a movile phone than a toilet. We can change this.
+                  Let's work together to make the power of water available to all!</p>
+                </div>
+              </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.slim.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+</html>

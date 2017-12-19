@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"></link>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <h2 class="text-center my-4">Hi there, {{ user.first_name }} {{ user.last_name }}</h2>
+          {% if messages %}
+          <div class="messages alert alert-success">
+              {% for message in messages %}
+              <p>{{ message }}</p>
+              {% endfor %}
+          </div>
+          {% endif %}
+          <p>The water crisis is a health crisis. Access to safe water and sanitation means
+          opportunity for improved health and the ability to help fight disease. It means
+          reduced physical injury from constant lifting and carrying heavy loads of water.
+          It means reduced child and maternal mortality rates. And it means reduced rick of
+          rape, sexual assault and increased safety as women and girls do not have to go to remote
+          and dangerous places to relieve themselves. Visit <u><a href="http://water.org/">water.org</a></u>
+          for more details and use this app to drop-ship reuseable 1 gallon water jugs via solar-powere drones.</p>
+          <h2 class="mt-5">Stats</h2>
+          <p>You've received <strong>26 Total Gallons</strong> of water from 7 people</p>
+          <ul>
+            <li>blank</li>
+            <li>blank</li>
+            <li>blank</li>
+            <li>blank</li>
+          </ul>
+          <div class="col mt-5">
+            <h3>Share the gift of water!</h3>
+            <table class="table">
+              <thead class="thead-light">
+                <tr>
+                  <th>Gallons Received</th>
+                  <th>Name</th>
+                  <th>Address</th>
+                  <th>Ship H2O</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for user in registered_users %}
+                <tr>
+                  <th scope="row"></th>
+                  <td>{{ user.first_name }} {{ user.last_name }}</td>
+                  <td>{{ user.address }}</td>
+                  <td><input type="submit" class="btn btn-primary" value="send"></td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+            <a href="/logout"><input type="submit" class="btn btn-lg btn-block btn-danger" value="Logout"></a>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.slim.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+</html>
